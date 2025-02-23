@@ -12,7 +12,7 @@ const Contact = () => {
 
   const [status, setStatus] = useState({ success: false, message: '' });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
 
     const formDataWithAccessKey = new FormData();
@@ -42,7 +42,7 @@ const Contact = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,

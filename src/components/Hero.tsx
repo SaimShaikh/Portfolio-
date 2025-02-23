@@ -28,7 +28,7 @@ const Hero = () => {
           </div>
           <div className="flex-1">
             <img
-              src="/src/images/peeps-avatar-alpha.png"
+              src="/images/myavtar.png"
               alt="Developer workspace"
               className="rounded-2xl shadow-2xl"
             />
