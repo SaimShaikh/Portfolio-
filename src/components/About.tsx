@@ -22,16 +22,27 @@ const About = () => {
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
             My passion lies in building scalable and efficient cloud infrastructure. My future goal is to become a skilled DevOps Engineer, contributing to innovative cloud solutions and enhancing deployment automation. I'm always eager to learn, collaborate, and grow in the ever-evolving tech landscape
             </p>
-            {/* <div className="grid grid-cols-2 gap-4">
+            { <div className="grid grid-cols-2 gap-4">
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Experience</h3>
-                <p className="text-gray-600 dark:text-gray-300">5+ Years</p>
+                <p className="text-gray-600 dark:text-gray-300">3 Months </p>
+              </div>
+              
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">SmartED</h3>
+                <p className="text-gray-600 dark:text-gray-300">Cloud Computing Intern</p>
+                <p className="text-gray-600 dark:text-gray-300">June 5, 2024 – August 30, 2024</p>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Projects</h3>
-                <p className="text-gray-600 dark:text-gray-300">50+ Completed</p>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">On Going </h3>
+                <p className="text-gray-600 dark:text-gray-300">3 Months </p>
               </div>
-            </div> */}
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Embrizon Technologies</h3>
+                <p className="text-gray-600 dark:text-gray-300">Azure Cloud Computing</p>
+                <p className="text-gray-600 dark:text-gray-300">Feb 15, 2025</p>
+              </div>
+            </div> }
           </div>
         </div>
       </div>
