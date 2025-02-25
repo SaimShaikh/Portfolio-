@@ -33,15 +33,7 @@ const About = () => {
                 <p className="text-gray-600 dark:text-gray-300">Cloud Computing Intern</p>
                 <p className="text-gray-600 dark:text-gray-300">June 5, 2024 – August 30, 2024</p>
               </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">On Going </h3>
-                <p className="text-gray-600 dark:text-gray-300">3 Months </p>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Embrizon Technologies</h3>
-                <p className="text-gray-600 dark:text-gray-300">Azure Cloud Computing</p>
-                <p className="text-gray-600 dark:text-gray-300">Feb 15, 2025</p>
-              </div>
+              
             </div> }
           </div>
         </div>

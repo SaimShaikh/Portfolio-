@@ -11,6 +11,7 @@ const skills = [
   { name: 'GitHub', level: 'Expert', category: 'Version Control & SCM' },
   { name: 'Kubernetes', level: 'Expert', category: 'Container Orchestration' },
   { name: 'Ansible', level: 'Expert', category: 'Configuration Management' },
+  { name: 'Grafana', level: 'Expert', category: 'Visualization' },
   { name: 'Blog Writer', level: 'Expert', category: 'Social Media' },
 
 ];
