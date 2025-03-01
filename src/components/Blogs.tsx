@@ -49,7 +49,7 @@ const Blogs = () => {
                   {post.description}
                 </p>
                 <a
-                   href={post.link}
+                  href={post.link}
                   className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline"
                 >
                   Read More
@@ -71,6 +71,16 @@ const Blogs = () => {
               </div>
             </article>
           ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          <a
+            href="https://hashnode.com/@saimeshaikh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition"
+          >
+            View More Blogs
+          </a>
         </div>
       </div>
     </section>

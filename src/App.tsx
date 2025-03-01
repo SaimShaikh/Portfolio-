@@ -3,6 +3,7 @@ import { Sun, Moon, Github, Instagram, Linkedin, Hash } from 'lucide-react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import Education from './components/Education';
 import Blogs from './components/Blogs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
