@@ -8,6 +8,8 @@ import Blogs from './components/Blogs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+
+
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
     // Check if user has a dark mode preference saved
@@ -63,10 +65,12 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Education />
         <Skills />
         <Blogs />
         <Contact />
       </main>
+
 
       <Footer />
     </div>
