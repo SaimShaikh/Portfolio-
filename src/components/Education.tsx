@@ -4,7 +4,7 @@ import { GraduationCap, Award } from 'lucide-react';
 const education = [
   {
     degree: 'Bachelor of Technology',
-    specialization: 'Cloud Computing',
+    specialization: 'Cloud Computing & Information Security',
     institution: 'Ajeenkya DY Patil University, Pune',
     duration: '2022 - 2025',
     icon: GraduationCap,
@@ -12,7 +12,7 @@ const education = [
   {
     degree: 'Diploma',
     specialization: 'Computer Engineering',
-    institution: 'Government Polytechnic Mumbai',
+    institution: 'Vidya Pratishthans Polytechnic College',
     duration: '2019 - 2022',
     icon: Award,
   },
