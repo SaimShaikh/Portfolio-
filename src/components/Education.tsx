@@ -1,4 +1,5 @@
 import React from 'react';
+import { GraduationCap, Award } from 'lucide-react';
 
 const education = [
   {
@@ -6,12 +7,14 @@ const education = [
     specialization: 'Cloud Computing',
     institution: 'Ajeenkya DY Patil University, Pune',
     duration: '2022 - 2025',
+    icon: GraduationCap,
   },
   {
     degree: 'Diploma',
     specialization: 'Computer Engineering',
     institution: 'Government Polytechnic Mumbai',
     duration: '2019 - 2022',
+    icon: Award,
   },
 ];
 
@@ -26,20 +29,25 @@ const Education = () => {
           {education.map((edu, index) => (
             <div
               key={index}
-              className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex items-center gap-4"
             >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
-                {edu.degree}
-              </h3>
-              <p className="text-indigo-600 dark:text-indigo-400 font-medium">
-                {edu.specialization}
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm">
-                {edu.institution}
-              </p>
-              <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
-                {edu.duration}
-              </span>
+              <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
+                <edu.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                  {edu.degree}
+                </h3>
+                <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+                  {edu.specialization}
+                </p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
+                  {edu.institution}
+                </p>
+                <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                  {edu.duration}
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -48,4 +56,4 @@ const Education = () => {
   );
 };
 
-export default Education; // ✅ Ensure this is at the bottom!
+export default Education;
