@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import { Mail, MapPin } from 'lucide-react';
-import Swal from 'sweetalert2'
-
+import React, { useState } from "react";
+import { Mail, MapPin } from "lucide-react";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
-  const [status, setStatus] = useState({ success: false, message: '' });
+  const [status, setStatus] = useState({ success: false, message: "" });
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     const formDataWithAccessKey = new FormData();
@@ -30,9 +29,9 @@ const Contact = () => {
       const result = await response.json();
       if (result.success) {
         Swal.fire({
-          title: "Good job ☺️ ",
+          title: "Good job ☺️",
           text: "Thanks for reaching out!",
-          icon: "success"
+          icon: "success",
         });
       } else {
         setStatus({ success: false, message: "Something went wrong. Try again!" });
@@ -42,7 +41,7 @@ const Contact = () => {
     }
   };
 
-  const handleChange = (e:any) => {
+  const handleChange = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -55,10 +54,22 @@ const Contact = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
           Get in Touch
         </h2>
-        <div className="grid md:grid-cols-2 gap-12">
+
+        {/* Grid layout with 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          
+          {/* Column 1: Small Circular Image */}
+          <div className="flex justify-center">
+  <img
+    src="/images/wer.jpeg"
+    alt="Your Profile"
+    className="w-60 h-60 rounded-full shadow-lg border-5 border-gray-300 dark:border-gray-600"
+  />
+</div>
+
+          {/* Column 2: Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input type="hidden" name="access_key" value="your-web3forms-access-key" />
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
                 <input
@@ -105,8 +116,10 @@ const Contact = () => {
               )}
             </form>
           </div>
-          <div className="space-y-8">
-            <div>
+
+          {/* Column 3: Contact Information */}
+          <div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Contact Information
               </h3>
@@ -123,7 +136,9 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div>
+
+            {/* Connect with Me Section */}
+            <div className="mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Connect with Me
               </h3>
@@ -132,6 +147,7 @@ const Contact = () => {
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
