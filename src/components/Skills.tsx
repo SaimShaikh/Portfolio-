@@ -13,7 +13,6 @@ const skills = [
   { name: 'Ansible', level: 'Expert', category: 'Configuration Management' },
   { name: 'Grafana', level: 'Expert', category: 'Visualization' },
   { name: 'Blog Writer', level: 'Expert', category: 'Social Media' },
-
 ];
 
 const Skills = () => {
@@ -27,7 +26,7 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-neon"
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 {skill.name}
@@ -35,6 +34,9 @@ const Skills = () => {
               <p className="text-gray-500 dark:text-gray-400 text-sm">
                 {skill.category}
               </p>
+
+              {/* Neon Glow Effect */}
+              <div className="absolute inset-0 rounded-xl border-2 border-transparent hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)] transition-all"></div>
             </div>
           ))}
         </div>

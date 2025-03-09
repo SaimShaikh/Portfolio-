@@ -25,28 +25,42 @@ const Education = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
           Education
         </h2>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {education.map((edu, index) => (
             <div
               key={index}
-              className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex items-center gap-4"
+              className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg
+                         transition-all transform hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]"
             >
-              <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-                <edu.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
-                  {edu.degree}
-                </h3>
-                <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-2">
-                  {edu.specialization}
-                </p>
-                <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
-                  {edu.institution}
-                </p>
-                <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
-                  {edu.duration}
-                </span>
+              {/* Neon Glow Effect */}
+              <div className="absolute inset-0 rounded-xl border-2 border-transparent
+                              hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]
+                              transition-all"></div>
+
+              <div className="flex items-center gap-4">
+                {/* Icon with Glow Effect */}
+                <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg
+                                transition-all hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]">
+                  <edu.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1 
+                                 transition-all duration-300 hover:text-indigo-400 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+                    {edu.specialization}
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
+                    {edu.institution}
+                  </p>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 
+                                   dark:bg-gray-700 px-3 py-1 rounded-full">
+                    {edu.duration}
+                  </span>
+                </div>
               </div>
             </div>
           ))}

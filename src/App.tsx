@@ -7,18 +7,19 @@ import Education from './components/Education';
 import Blogs from './components/Blogs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Projects from './components/Projects';
+
+
 
 
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    // Check if user has a dark mode preference saved
     const savedDarkMode = localStorage.getItem('darkMode');
     return savedDarkMode ? JSON.parse(savedDarkMode) : false;
   });
 
   useEffect(() => {
-    // Update dark mode class and save preference
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+      {/* Navbar */}
       <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">SS.</h1>
@@ -62,15 +64,16 @@ function App() {
         </div>
       </nav>
 
+      {/* Main Content */}
       <main>
         <Hero />
         <About />
         <Education />
         <Skills />
+        <Projects />
         <Blogs />
         <Contact />
       </main>
-
 
       <Footer />
     </div>
