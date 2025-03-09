@@ -75,12 +75,14 @@ const Projects = () => {
         {/* View More Projects Button */}
         <div className="flex justify-center mt-8">
           <a 
-            href="/projects" 
+            href="https://github.com/SaimShaikh" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3 text-white bg-indigo-600 rounded-lg shadow-md 
                        hover:bg-indigo-500 transition-all
                        hover:shadow-[0_0_15px_rgba(99,102,241,0.9)]"
           >
-            View More
+            View More on GitHub
           </a>
         </div>
       </div>
