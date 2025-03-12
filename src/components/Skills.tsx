@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const skills = [
   { name: 'AWS', level: 'Expert', category: 'Cloud Platform' },
@@ -19,9 +20,26 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white bg-clip-text text-transparent"
+          animate={{
+            backgroundSize: ["200% 200%", "300% 300%", "200% 200%"],
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          style={{
+            backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
+            backgroundSize: "200% 200%",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
+          }}
+        >
           Technical Skills
-        </h2>
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skills.map((skill, index) => (
             <div

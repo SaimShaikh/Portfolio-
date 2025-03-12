@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Github, Instagram, Linkedin, Hash } from 'lucide-react';
 
 const Footer = () => {
@@ -7,7 +8,26 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">SS.</h2>
+            <motion.h2
+              className="text-2xl font-bold text-center mb-4"
+              animate={{
+                backgroundSize: ["200% 200%", "300% 300%", "200% 200%"],
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              style={{
+                backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
+                backgroundSize: "200% 200%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              SS
+            </motion.h2>
             <p className="text-gray-600 dark:text-gray-300 mt-2">
               Building robust DevOps solutions
             </p>

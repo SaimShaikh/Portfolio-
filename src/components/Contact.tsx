@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Mail, MapPin } from "lucide-react";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,23 +52,36 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          animate={{
+            backgroundSize: ["200% 200%", "300% 300%", "200% 200%"],
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          style={{
+            backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
+            backgroundSize: "200% 200%",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
+          }}
+        >
           Get in Touch
-        </h2>
+        </motion.h2>
 
-        {/* Grid layout with 3 columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-          
-          {/* Column 1: Small Circular Image */}
           <div className="flex justify-center">
-  <img
-    src="/images/wer.jpeg"
-    alt="Your Profile"
-    className="w-60 h-60 rounded-full shadow-lg border-5 border-gray-300 dark:border-gray-600"
-  />
-</div>
+            <img
+              src="/images/wer.jpeg"
+              alt="Your Profile"
+              className="w-60 h-60 rounded-full shadow-lg border-5 border-gray-300 dark:border-gray-600"
+            />
+          </div>
 
-          {/* Column 2: Contact Form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
               <div>
@@ -117,18 +131,13 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Column 3: Contact Information */}
           <div>
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                Contact Information
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                  <a href="mailto:shaikhsaime02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
-                    shaikhsaime02@gmail.com
-                  </a>
+                  <a href="mailto:shaikhsaime02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">shaikhsaime02@gmail.com</a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
@@ -136,18 +145,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
-            {/* Connect with Me Section */}
-            <div className="mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                Connect with Me
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Feel free to reach out for collaborations, consulting opportunities, or just to say hello. I'm always excited to connect with fellow technology enthusiasts and professionals.
-              </p>
-            </div>
           </div>
-
         </div>
       </div>
     </section>

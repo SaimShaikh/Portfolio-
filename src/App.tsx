@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Sun, Moon, Github, Instagram, Linkedin, Hash } from 'lucide-react';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,10 +9,6 @@ import Blogs from './components/Blogs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
-
-
-
-
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -37,7 +34,29 @@ function App() {
       {/* Navbar */}
       <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">SS.</h1>
+          
+          {/* Animated "SS" Header with Moving Gradient */}
+          <motion.h1
+            className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+            animate={{
+              backgroundSize: ["200% 200%", "300% 300%", "200% 200%"],
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{
+              backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
+              backgroundSize: "200% 200%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}
+          >
+            SS
+          </motion.h1>
+
           <div className="flex items-center gap-6">
             <button
               onClick={toggleDarkMode}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Calendar, Clock } from 'lucide-react';
 
 const blogPosts = [
@@ -32,28 +33,42 @@ const Blogs = () => {
   return (
     <section id="blogs" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        {/* Animated Heading */}
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+          animate={{
+            backgroundSize: ["200% 200%", "300% 300%", "200% 200%"],
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{
+            backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
+            backgroundSize: "200% 200%",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
           Latest Blog Posts
-        </h2>
+        </motion.h2>
 
         {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post, index) => (
             <article
               key={index}
-              className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all transform
-                         hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]"
+              className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]"
             >
               {/* Neon Glow Effect */}
-              <div className="absolute inset-0 rounded-xl border-2 border-transparent
-                              hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]
-                              transition-all"></div>
+              <div className="absolute inset-0 rounded-xl border-2 border-transparent hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)] transition-all"></div>
 
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-48 object-cover rounded-t-xl transition-all duration-300
-                           hover:brightness-110 hover:contrast-125"
+                className="w-full h-48 object-cover rounded-t-xl transition-all duration-300 hover:brightness-110 hover:contrast-125"
               />
 
               <div className="relative z-10">
@@ -67,8 +82,7 @@ const Blogs = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 transition-all duration-300
-                               hover:text-indigo-400 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 transition-all duration-300 hover:text-indigo-400 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]">
                   {post.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">{post.description}</p>
@@ -78,9 +92,7 @@ const Blogs = () => {
                   href={post.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center mt-4 text-indigo-600 dark:text-indigo-400 
-                             hover:underline transition-all duration-300
-                             hover:text-indigo-300 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]"
+                  className="inline-flex items-center mt-4 text-indigo-600 dark:text-indigo-400 hover:underline transition-all duration-300 hover:text-indigo-300 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]"
                 >
                   Read More →
                 </a>
@@ -95,9 +107,7 @@ const Blogs = () => {
             href="https://hashnode.com/@saimeshaikh"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 text-white bg-indigo-600 rounded-lg shadow-md 
-                       hover:bg-indigo-500 transition-all
-                       hover:shadow-[0_0_15px_rgba(99,102,241,0.9)]"
+            className="px-6 py-3 text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-500 transition-all hover:shadow-[0_0_15px_rgba(99,102,241,0.9)]"
           >
             View More Blogs
           </a>
