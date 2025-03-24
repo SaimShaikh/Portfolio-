@@ -1,24 +1,19 @@
 import React, { useState } from "react";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Briefcase, Info } from "lucide-react";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState({ name: "", email: "", linkedin: "", message: "" });
   const [status, setStatus] = useState({ success: false, message: "" });
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
     const formDataWithAccessKey = new FormData();
     formDataWithAccessKey.append("access_key", "3ae7327b-340d-430c-8654-0294fcfa5c0d");
     formDataWithAccessKey.append("name", formData.name);
     formDataWithAccessKey.append("email", formData.email);
+    formDataWithAccessKey.append("linkedin", formData.linkedin);
     formDataWithAccessKey.append("message", formData.message);
 
     try {
@@ -29,11 +24,7 @@ const Contact = () => {
 
       const result = await response.json();
       if (result.success) {
-        Swal.fire({
-          title: "Good job ☺️",
-          text: "Thanks for reaching out!",
-          icon: "success",
-        });
+        Swal.fire({ title: "Good job ☺️", text: "Thanks for reaching out!", icon: "success" });
       } else {
         setStatus({ success: false, message: "Something went wrong. Try again!" });
       }
@@ -43,108 +34,90 @@ const Contact = () => {
   };
 
   const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+    <section id="contact" className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
+        {/* Title */}
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
-          animate={{
-            backgroundSize: ["200% 200%", "300% 300%", "200% 200%"],
-            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          style={{
-            backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
-            backgroundSize: "200% 200%",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
-          }}
+          className="text-3xl md:text-4xl font-bold text-center mb-10"
+          animate={{ backgroundSize: ["200% 200%", "300% 300%", "200% 200%"], backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)", backgroundSize: "200% 200%", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
         >
           Get in Touch
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-          <div className="flex justify-center">
-            <img
-              src="/images/wer.jpeg"
-              alt="Your Profile"
-              className="w-60 h-60 rounded-full shadow-lg border-5 border-gray-300 dark:border-gray-600"
-            />
+        {/* Three-column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Column 1: Why Contact Me? */}
+          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why Contact Me?</h3>
+            <ul className="space-y-3 text-sm flex-grow">
+              <li className="flex items-center space-x-2">
+                <MessageCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-gray-600 dark:text-gray-300">Have questions about DevOps, Kubernetes, or AWS?</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Briefcase className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-gray-600 dark:text-gray-300">Looking for a skilled fresher in DevOps?</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Info className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-gray-600 dark:text-gray-300">Want to discuss collaborations?</span>
+              </li>
+            </ul>
           </div>
 
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          {/* Column 2: Contact Form */}
+          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
+            <form onSubmit={handleSubmit} className="space-y-4 flex-grow">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  required
-                />
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  required
-                />
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  required
-                ></textarea>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">LinkedIn URL</label>
+                <input type="url" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required />
               </div>
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Send Message
-              </button>
-              {status.message && (
-                <p className={`mt-3 text-sm ${status.success ? "text-green-500" : "text-red-500"}`}>
-                  {status.message}
-                </p>
-              )}
+              <div>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                <textarea name="message" value={formData.message} onChange={handleChange} rows={3} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required></textarea>
+              </div>
+              <button type="submit" className="w-full px-4 py-2 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors"
+                style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)", backgroundSize: "200% auto" }}
+              >Send Message</button>
+              {status.message && <p className={`mt-2 text-xs ${status.success ? "text-green-500" : "text-red-500"}`}>{status.message}</p>}
             </form>
           </div>
+        
+      
 
-          <div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+          {/* Column 3: Contact Info with Image */}
+          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
+            {/* Upper Half: Contact Details */}
+            <div className="flex-grow">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">Contact Info</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-center space-x-2">
                   <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                   <a href="mailto:shaikhsaime02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">shaikhsaime02@gmail.com</a>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-2">
                   <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                   <span className="text-gray-600 dark:text-gray-300">Pune, India</span>
                 </div>
               </div>
             </div>
+
+            {/* Lower Half: Image */}
+          
           </div>
         </div>
       </div>
