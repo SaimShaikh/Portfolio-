@@ -50,12 +50,12 @@ const Contact = () => {
           Get in Touch
         </motion.h2>
 
-        {/* Three-column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Column 1: Why Contact Me? */}
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Left Column: Why Contact Me & Contact Info Combined */}
           <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why Contact Me?</h3>
-            <ul className="space-y-3 text-sm flex-grow">
+            <ul className="space-y-3 text-sm">
               <li className="flex items-center space-x-2">
                 <MessageCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <span className="text-gray-600 dark:text-gray-300">Have questions about DevOps, Kubernetes, or AWS?</span>
@@ -69,9 +69,21 @@ const Contact = () => {
                 <span className="text-gray-600 dark:text-gray-300">Want to discuss collaborations?</span>
               </li>
             </ul>
+            <hr className="my-4 border-gray-300 dark:border-gray-600" />
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Contact Info</h3>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center space-x-2">
+                <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <a href="mailto:shaikhsaime02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">shaikhsaime02@gmail.com</a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-gray-600 dark:text-gray-300">Pune, India</span>
+              </div>
+            </div>
           </div>
 
-          {/* Column 2: Contact Form */}
+          {/* Right Column: Contact Form */}
           <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
             <form onSubmit={handleSubmit} className="space-y-4 flex-grow">
               <div>
@@ -90,34 +102,9 @@ const Contact = () => {
                 <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
                 <textarea name="message" value={formData.message} onChange={handleChange} rows={3} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required></textarea>
               </div>
-              <button type="submit" className="w-full px-4 py-2 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors"
-                style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)", backgroundSize: "200% auto" }}
-              >Send Message</button>
+              <button type="submit" className="w-full px-4 py-2 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors" style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)", backgroundSize: "200% auto" }}>Send Message</button>
               {status.message && <p className={`mt-2 text-xs ${status.success ? "text-green-500" : "text-red-500"}`}>{status.message}</p>}
             </form>
-          </div>
-        
-      
-
-          {/* Column 3: Contact Info with Image */}
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
-            {/* Upper Half: Contact Details */}
-            <div className="flex-grow">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">Contact Info</h3>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center space-x-2">
-                  <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                  <a href="mailto:shaikhsaime02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">shaikhsaime02@gmail.com</a>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                  <span className="text-gray-600 dark:text-gray-300">Pune, India</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Lower Half: Image */}
-          
           </div>
         </div>
       </div>

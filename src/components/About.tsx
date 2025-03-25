@@ -25,7 +25,7 @@ const About = () => {
             <img
               src="/images/image.png"
               alt="DevOps Engineer"
-              className="rounded-2xl shadow-lg"
+              className="w-full h-auto"
             />
           </div>
           <div className="text-justify"> {/* Add text-justify class here */}
