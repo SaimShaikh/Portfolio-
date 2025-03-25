@@ -1,25 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { 
+  SiAmazon, SiDocker, SiJenkins, SiTerraform, SiPython, 
+  SiGit, SiGithub, SiKubernetes, SiAnsible, SiGrafana, SiBlogger
+} from 'react-icons/si';
+import { FaLinux } from 'react-icons/fa';  // Proper Linux icon
 
 const skills = [
-  { name: 'AWS', level: 'Expert', category: 'Cloud Platform' },
-  { name: 'Docker', level: 'Expert', category: 'Containerization' },
-  { name: 'Jenkins', level: 'Expert', category: 'CI/CD' },
-  { name: 'Terraform', level: 'Advanced', category: 'IaC' },
-  { name: 'Linux', level: 'Expert', category: 'Operating System' },
-  { name: 'Python', level: 'Advanced', category: 'Programming' },
-  { name: 'Git', level: 'Expert', category: 'Version Control' },
-  { name: 'GitHub', level: 'Expert', category: 'Version Control & SCM' },
-  { name: 'Kubernetes', level: 'Expert', category: 'Container Orchestration' },
-  { name: 'Ansible', level: 'Expert', category: 'Configuration Management' },
-  { name: 'Grafana', level: 'Expert', category: 'Visualization' },
-  { name: 'Blog Writer', level: 'Expert', category: 'Social Media' },
+  { name: 'AWS', icon: <SiAmazon className="text-yellow-500" />, category: 'Cloud Platform' },
+  { name: 'Docker', icon: <SiDocker className="text-blue-500" />, category: 'Containerization' },
+  { name: 'Jenkins', icon: <SiJenkins className="text-red-500" />, category: 'CI/CD' },
+  { name: 'Terraform', icon: <SiTerraform className="text-purple-500" />, category: 'IaC' },
+  { name: 'Linux', icon: <FaLinux className="text-black dark:text-white" />, category: 'Operating System' }, // Correct Linux icon
+  { name: 'Python', icon: <SiPython className="text-yellow-400" />, category: 'Programming' },
+  { name: 'Git', icon: <SiGit className="text-orange-500" />, category: 'Version Control' },
+  { name: 'GitHub', icon: <SiGithub className="text-black dark:text-white" />, category: 'Version Control & SCM' },
+  { name: 'Kubernetes', icon: <SiKubernetes className="text-blue-600" />, category: 'Container Orchestration' },
+  { name: 'Ansible', icon: <SiAnsible className="text-red-600" />, category: 'Configuration Management' },
+  { name: 'Grafana', icon: <SiGrafana className="text-orange-400" />, category: 'Visualization' },
+  { name: 'Blog Writing', icon: <SiBlogger className="text-orange-500" />, category: 'Social Media' }, // Restored Blog Writing skill
 ];
 
 const Skills = () => {
   return (
     <section id="skills" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
+        {/* Title with Gradient Animation */}
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white bg-clip-text text-transparent"
           animate={{
@@ -40,22 +46,28 @@ const Skills = () => {
         >
           Technical Skills
         </motion.h2>
+
+        {/* Skill Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skills.map((skill, index) => (
-            <div
+            <motion.div
               key={index}
               className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-neon"
+              whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                {skill.name}
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 text-sm">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl">{skill.icon}</div> {/* Colorful Icons */}
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  {skill.name}
+                </h3>
+              </div>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
                 {skill.category}
               </p>
 
-              {/* Neon Glow Effect */}
+              {/* Neon Glow Effect on Hover */}
               <div className="absolute inset-0 rounded-xl border-2 border-transparent hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)] transition-all"></div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
