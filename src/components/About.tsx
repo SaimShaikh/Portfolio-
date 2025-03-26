@@ -30,24 +30,28 @@ const About = () => {
           </div>
           <div className="text-justify"> {/* Add text-justify class here */}
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              Hi, I'm Saime Shaikh, a final-year BTech student specializing in Cloud Computing at Ajeenkya DY Patil University, Pune.
-              I have a strong foundation in DevOps, cloud technologies, and automation, with hands-on experience in tools like Linux,
-              Docker, Kubernetes, Jenkins, Terraform, and AWS.
+            🚀 Hello! I'm Saime Shaikh, a tech-driven innovator and final-year BTech student specializing in Cloud Computing at Ajeenkya DY Patil University, Pune. My expertise lies in DevOps, cloud technologies, and automation, where I craft scalable and resilient infrastructures.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
               My passion lies in building scalable and efficient cloud infrastructure. My future goal is to become a skilled DevOps
               Engineer, contributing to innovative cloud solutions and enhancing deployment automation. I'm always eager to learn,
               collaborate, and grow in the ever-evolving tech landscape.
             </p>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+            🎯 My ultimate goal? To become a skilled DevOps Engineer, contributing to cutting-edge cloud solutions that transform the way businesses operate. I’m always eager to learn, collaborate, and push boundaries in the fast-paced world of technology.
+
+🤝 Let’s connect and create something remarkable together!
+            </p>
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Experience</h3>
                 <p className="text-gray-600 dark:text-gray-300">3 Months </p>
+                <p className="text-gray-600 dark:text-gray-300">June 5, 2024 – Aug 30, 2024</p>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">SmartED</h3>
                 <p className="text-gray-600 dark:text-gray-300">Cloud Computing Intern</p>
-                <p className="text-gray-600 dark:text-gray-300">June 5, 2024 – August 30, 2024</p>
+                
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon, Github, Instagram, Linkedin, Hash } from 'lucide-react';
+import { Sun, Moon, Github, Instagram, Linkedin } from 'lucide-react';
+import { FaMedium } from 'react-icons/fa'; // Import Medium icon
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -34,7 +35,6 @@ function App() {
       {/* Navbar */}
       <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          
           {/* Animated "SS" Header with Moving Gradient */}
           <motion.h1
             className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
@@ -65,7 +65,7 @@ function App() {
             >
               {darkMode ? <Sun className="w-5 h-5 text-gray-200" /> : <Moon className="w-5 h-5 text-gray-700" />}
             </button>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               <a href="https://github.com/SaimShaikh" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
                 <Github className="w-5 h-5" />
               </a>
@@ -75,8 +75,8 @@ function App() {
               <a href="https://www.linkedin.com/in/saim-shaikh-devops/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://hashnode.com/@saimeshaikh" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
-                <Hash className="w-5 h-5" />
+              <a href="https://medium.com/@shaikhsaime02" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                <FaMedium className="w-5 h-5" />
               </a>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Instagram, Linkedin, Hash } from 'lucide-react';
+import { Github, Instagram, Linkedin } from 'lucide-react';
+import { FaMedium } from 'react-icons/fa'; // Import Medium icon
 
 const Footer = () => {
   return (
@@ -58,12 +59,12 @@ const Footer = () => {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://hashnode.com/@saimeshaikh"
+              href="https://medium.com/@shaikhsaime02"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
             >
-              <Hash className="w-6 h-6" />
+              <FaMedium className="w-6 h-6" />
             </a>
           </div>
         </div>
