@@ -7,12 +7,13 @@ const Hero = () => {
     backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
     backgroundSize: "200% 200%",
     animation: "gradientAnimation 3s linear infinite",
+    color: 'white'
   };
 
   const cardStyle = {
-    backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)", // Adjusted gradient
+    backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
     backgroundSize: "200% 200%",
-    animation: "gradientAnimation 5s linear infinite", // Adjusted duration
+    animation: "gradientAnimation 5s linear infinite",
     color: 'white'
   };
 
@@ -30,13 +31,11 @@ const Hero = () => {
     }
   `;
 
-  // Dynamically create the style tag to inject into the head
   const styleTag = document.createElement('style');
   styleTag.textContent = keyframesStyle;
 
-  // Only append the style tag once
   if (!document.head.querySelector('style[data-gradient-animation]')) {
-    styleTag.setAttribute('data-gradient-animation', 'true'); // Prevent multiple appends
+    styleTag.setAttribute('data-gradient-animation', 'true');
     document.head.appendChild(styleTag);
   }
 
@@ -77,7 +76,7 @@ const Hero = () => {
               <motion.a
                 href="/images/Saime_Resume.pdf"
                 download
-                className="px-8 py-3 text-white rounded-full hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                className="px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                 style={buttonStyle}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -85,23 +84,31 @@ const Hero = () => {
                 <Download className="w-4 h-4" />
                 Download CV
               </motion.a>
+
+              <motion.a
+                href="#contact"
+                className="px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                style={buttonStyle}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get in Touch
+              </motion.a>
             </div>
           </div>
 
-          {/* Muhammad Ali Tribute Card (Reduced Size) */}
+          {/* Muhammad Ali Tribute Card */}
           <motion.div
             className="flex-1 max-w-sm mx-auto p-6 rounded-lg shadow-xl text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            style={cardStyle} // Apply cardStyle
+            style={cardStyle}
           >
-            {/* Quote */}
             <p className="text-xl font-semibold mb-4">
-            "If my mind can conceive it, and my heart can believe it - then I can achieve it."
+              "If my mind can conceive it, and my heart can believe it - then I can achieve it."
             </p>
 
-            {/* Image */}
             <div className="flex justify-center mb-4">
               <img
                 className="h-24 w-24 rounded-full border-4 border-white shadow-lg"
@@ -110,9 +117,8 @@ const Hero = () => {
               />
             </div>
 
-            {/* Biography */}
             <p className="text-sm mb-2">
-              Muhammad Ali (Jan 17, 1942 – June 3, 2016) 
+              Muhammad Ali (Jan 17, 1942 – June 3, 2016)
             </p>
             <p className="text-sm italic">"Float like a butterfly, sting like a bee."</p>
           </motion.div>

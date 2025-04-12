@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 
 const projects = [
   {
@@ -39,67 +40,67 @@ const Projects = () => {
           transition={{
             duration: 5,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           style={{
-            backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
+            backgroundImage:
+              "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
             backgroundSize: "200% 200%",
             WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
+            WebkitTextFillColor: "transparent",
           }}
         >
           Featured Projects
         </motion.h2>
 
         {/* Project Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
-            <motion.article
+            <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative bg-white dark:bg-gray-800 rounded-xl shadow-lg 
-                         transition-all transform hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]"
             >
-              {/* Neon Glow Border on Hover */}
-              <div
-                className="absolute inset-0 rounded-xl border-2 border-transparent
-                           hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.8)]
-                           transition-all"
-              ></div>
+              <Tilt
+                glareEnable={true}
+                glareMaxOpacity={0.15}
+                scale={1.02}
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                className="rounded-xl"
+              >
+                <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl transition-all transform hover:scale-105 hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]">
+                  {/* Neon Glow Border on Hover */}
+                  <div className="absolute inset-0 rounded-xl border-2 border-transparent hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.6)] transition-all duration-300"></div>
 
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover rounded-t-xl transition-all duration-300
-                           hover:brightness-110 hover:contrast-125"
-              />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover rounded-t-xl transition-all duration-300 hover:brightness-110 hover:contrast-125"
+                  />
 
-              <div className="p-6 relative z-10">
-                <h3
-                  className="text-xl font-semibold text-gray-900 dark:text-white mb-3 
-                               transition-all duration-300 hover:text-indigo-400 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]"
-                >
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
+                  <div className="p-6 relative z-10">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 transition-all duration-300 hover:text-indigo-400 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      {project.description}
+                    </p>
 
-                {/* View Project Button */}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline
-                             transition-all duration-300 hover:text-indigo-300 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]"
-                  onClick={() => console.log(`Opening: ${project.link}`)}
-                >
-                  View Project →
-                </a>
-              </div>
-            </motion.article>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline transition-all duration-300 hover:text-indigo-300 hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]"
+                      onClick={() => console.log(`Opening: ${project.link}`)}
+                    >
+                      View Project →
+                    </a>
+                  </div>
+                </div>
+              </Tilt>
+            </motion.div>
           ))}
         </div>
 
@@ -109,10 +110,12 @@ const Projects = () => {
             href="https://github.com/SaimShaikh"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, boxShadow: "0px 0px 15px rgba(99,102,241,0.9)" }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 0px 15px rgba(99,102,241,0.9)",
+            }}
             transition={{ duration: 0.3 }}
-            className="px-6 py-3 text-white bg-indigo-600 rounded-lg shadow-md 
-                       hover:bg-indigo-500 transition-all"
+            className="px-6 py-3 text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-500 transition-all"
           >
             View More on GitHub
           </motion.a>
