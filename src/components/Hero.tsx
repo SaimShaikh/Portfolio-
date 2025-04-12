@@ -64,12 +64,12 @@ const Hero = () => {
                   ease: "linear",
                 }}
               >
-                Saime Shaikh
+                Saime_Shaikh
               </motion.span>
             </h1>
 
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Cloud Computing & DevOps Enthusiast
+              Cloud Computing & DevOps Enthusiast...!
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
