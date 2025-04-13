@@ -27,7 +27,7 @@ const Footer = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              SS
+              Thanks for Visiting ...
             </motion.h2>
             <p className="text-gray-600 dark:text-gray-300 mt-2">
               Building robust DevOps solutions

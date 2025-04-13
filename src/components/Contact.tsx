@@ -87,7 +87,7 @@ const Contact = () => {
           <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
             <form onSubmit={handleSubmit} className="space-y-4 flex-grow">
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" >Name</label>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required />
               </div>
               <div>

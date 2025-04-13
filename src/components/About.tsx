@@ -22,10 +22,10 @@ const About = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <img
-              src="/images/image.png"
+          <img
+              src="/images/p1.jpeg"
               alt="DevOps Engineer"
-              className="w-full h-auto"
+              className="rounded-xl shadow-xl dark:shadow-indigo-500/20"
             />
           </div>
           <div className="text-justify"> {/* Add text-justify class here */}
