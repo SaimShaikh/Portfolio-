@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Instagram, Linkedin } from 'lucide-react';
-import { FaMedium } from 'react-icons/fa'; // Import Medium icon
+import { FaMedium, FaDiscord } from 'react-icons/fa'; // Import FaDiscord too
+
 
 const Footer = () => {
   return (
@@ -66,6 +67,16 @@ const Footer = () => {
             >
               <FaMedium className="w-6 h-6" />
             </a>
+            <a
+  href="https://discord.com/users/643874595727867924"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+>
+  <FaDiscord className="w-6 h-6" />
+</a>
+
+            
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">

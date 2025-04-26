@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon, Github, Instagram, Linkedin } from 'lucide-react';
-import { FaMedium } from 'react-icons/fa'; // Import Medium icon
+import { FaMedium, FaDiscord } from 'react-icons/fa'; // Add FaDiscord here
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -78,6 +78,9 @@ function App() {
               <a href="https://medium.com/@shaikhsaime02" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
                 <FaMedium className="w-5 h-5" />
               </a>
+              <a href="https://discord.com/users/643874595727867924" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+    <FaDiscord className="w-5 h-5" />
+  </a>
             </div>
           </div>
         </div>
