@@ -50,62 +50,97 @@ const Contact = () => {
           Get in Touch
         </motion.h2>
 
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Column: Why Contact Me & Contact Info Combined */}
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Why Contact Me?</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center space-x-2">
-                <MessageCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-gray-600 dark:text-gray-300">Have questions about DevOps, Kubernetes, or AWS?</span>
+       {/* Two-column layout */}
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Left Column */}
+          <motion.div
+            className="backdrop-blur-md bg-white/70 dark:bg-gray-800/70 rounded-2xl shadow-lg p-6 flex flex-col justify-between"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Why Reach Out?</h3>
+            <ul className="space-y-5 text-gray-600 dark:text-gray-300">
+              <li className="flex items-center gap-3">
+                <MessageCircle className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                Curious about DevOps, Kubernetes, or AWS?
               </li>
-              <li className="flex items-center space-x-2">
-                <Briefcase className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-gray-600 dark:text-gray-300">Looking for a skilled fresher in DevOps?</span>
+              <li className="flex items-center gap-3">
+                <Briefcase className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                Hiring a passionate DevOps fresher?
               </li>
-              <li className="flex items-center space-x-2">
-                <Info className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-gray-600 dark:text-gray-300">Want to discuss collaborations?</span>
+              <li className="flex items-center gap-3">
+                <Info className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                Brainstorming tech collaborations?
               </li>
             </ul>
-            <hr className="my-4 border-gray-300 dark:border-gray-600" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Contact Info</h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center space-x-2">
-                <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <a href="mailto:shaikhsaime02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">shaikhsaime02@gmail.com</a>
+            <div className="border-t border-gray-300 dark:border-gray-600 my-6"></div>
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Contact Info</h3>
+            <div className="space-y-4 text-gray-600 dark:text-gray-300">
+              <div className="flex items-center gap-3">
+                <Mail className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                <a href="mailto:shaikhsaime02@gmail.com" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                  shaikhsaime02@gmail.com
+                </a>
               </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-gray-600 dark:text-gray-300">Pune, India</span>
+              <div className="flex items-center gap-3">
+                <MapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                Pune, India
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Contact Form */}
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex flex-col h-full">
-            <form onSubmit={handleSubmit} className="space-y-4 flex-grow">
+          <motion.div
+            className="backdrop-blur-md bg-white/70 dark:bg-gray-800/70 rounded-2xl shadow-lg p-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {["name", "email", "linkedin"].map((field, idx) => (
+                <div key={idx}>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 capitalize mb-1">
+                    {field}
+                  </label>
+                  <input
+                    type={field === "email" ? "email" : "text"}
+                    name={field}
+                    value={formData[field as keyof typeof formData]}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 text-sm focus:ring-2 focus:ring-indigo-400 outline-none"
+                    required
+                    placeholder={`Enter your ${field}`}
+                  />
+                </div>
+              ))}
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1" >Name</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required />
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 text-sm focus:ring-2 focus:ring-indigo-400 outline-none"
+                  placeholder="Let's talk..."
+                  required
+                ></textarea>
               </div>
-              <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required />
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">LinkedIn URL</label>
-                <input type="url" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required />
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
-                <textarea name="message" value={formData.message} onChange={handleChange} rows={3} className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" required></textarea>
-              </div>
-              <button type="submit" className="w-full px-4 py-2 text-white rounded-md text-sm hover:bg-indigo-700 transition-colors" style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)", backgroundSize: "200% auto" }}>Send Message</button>
-              {status.message && <p className={`mt-2 text-xs ${status.success ? "text-green-500" : "text-red-500"}`}>{status.message}</p>}
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full py-3 font-semibold rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-sm shadow-lg transition-all duration-300"
+              >
+                Send Message
+              </motion.button>
+              {status.message && (
+                <p className={`text-xs mt-2 ${status.success ? "text-green-500" : "text-red-500"}`}>
+                  {status.message}
+                </p>
+              )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -64,7 +64,7 @@ const Hero = () => {
                   ease: "linear",
                 }}
               >
-                Saime_Shaikh
+                Saime Shaikh
               </motion.span>
             </h1>
 

@@ -23,7 +23,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
           <img
-              src="/images/p1.jpeg"
+              src="/images/pa2.jpg"
               alt="DevOps Engineer"
               className="rounded-xl shadow-xl dark:shadow-indigo-500/20"
             />
@@ -61,4 +61,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About; 
