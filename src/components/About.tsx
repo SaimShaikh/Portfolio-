@@ -38,7 +38,7 @@ const About = () => {
               collaborate, and grow in the ever-evolving tech landscape.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            🎯 My ultimate goal? To become a skilled DevOps Engineer, contributing to cutting-edge cloud solutions that transform the way businesses operate. I’m always eager to learn, collaborate, and push boundaries in the fast-paced world of technology.
+            🎯My ultimate goal? To become a skilled DevOps Engineer, contributing to cutting-edge cloud solutions that transform the way businesses operate. I’m always eager to learn, collaborate, and push boundaries in the fast-paced world of technology.
 
 🤝 Let’s connect and create something remarkable together!
             </p>
