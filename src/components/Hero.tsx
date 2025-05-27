@@ -7,14 +7,17 @@ const Hero = () => {
     backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
     backgroundSize: "200% 200%",
     animation: "gradientAnimation 3s linear infinite",
-    color: 'white'
+    color: 'white',
   };
 
   const cardStyle = {
-    backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
-    backgroundSize: "200% 200%",
-    animation: "gradientAnimation 5s linear infinite",
-    color: 'white'
+    backgroundColor: 'white',
+    borderRadius: '1rem',
+    padding: '2rem',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   };
 
   const keyframesStyle = `
@@ -97,31 +100,18 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Muhammad Ali Tribute Card */}
+          {/* Custom SVG Card */}
           <motion.div
-            className="flex-1 max-w-sm mx-auto p-6 rounded-lg shadow-xl text-center"
+            className="flex-1 max-w-sm mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            style={cardStyle}
-          >
-            <p className="text-xl font-semibold mb-4">
-              "If my mind can conceive it, and my heart can believe it - then I can achieve it."
-            </p>
-
-            <div className="flex justify-center mb-4">
-              <img
-                className="h-24 w-24 rounded-full border-4 border-white shadow-lg"
-                src="/images/ali.jpeg"
-                alt="Muhammad Ali"
-              />
-            </div>
-
-            <p className="text-sm mb-2">
-              Muhammad Ali (Jan 17, 1942 – June 3, 2016)
-            </p>
-            <p className="text-sm italic">"Float like a butterfly, sting like a bee."</p>
-          </motion.div>
+            dangerouslySetInnerHTML={{
+              __html: `
+               <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_105_284)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H50V50H0V0ZM100 50H50V100H0V150H50V200H100V150H150V200H200V150H150V100H200V50H150V0H100V50ZM100 100H150V50H100V100ZM100 100V150H50V100H100Z" fill="url(#paint0_linear_105_284)"/> </g> <defs> <linearGradient id="paint0_linear_105_284" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse"> <stop stop-color="#A7B5FF"/> <stop offset="1" stop-color="#F3ACFF"/> </linearGradient> <clipPath id="clip0_105_284"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
+              `,
+            }}
+          />
         </div>
       </div>
     </section>

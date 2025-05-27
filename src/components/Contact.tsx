@@ -3,18 +3,36 @@ import { Mail, MapPin, MessageCircle, Briefcase, Info } from "lucide-react";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", linkedin: "", message: "" });
-  const [status, setStatus] = useState({ success: false, message: "" });
+interface FormDataType {
+  name: string;
+  email: string;
+  linkedin: string;
+  message: string;
+}
 
-  const handleSubmit = async (e: any) => {
+const Contact = () => {
+  const [formData, setFormData] = useState<FormDataType>({
+    name: "",
+    email: "",
+    linkedin: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<{ success: boolean; message: string }>({
+    success: false,
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const formDataWithAccessKey = new FormData();
     formDataWithAccessKey.append("access_key", "3ae7327b-340d-430c-8654-0294fcfa5c0d");
-    formDataWithAccessKey.append("name", formData.name);
-    formDataWithAccessKey.append("email", formData.email);
-    formDataWithAccessKey.append("linkedin", formData.linkedin);
-    formDataWithAccessKey.append("message", formData.message);
+    Object.entries(formData).forEach(([key, value]) =>
+      formDataWithAccessKey.append(key, value)
+    );
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -24,34 +42,49 @@ const Contact = () => {
 
       const result = await response.json();
       if (result.success) {
-        Swal.fire({ title: "Good job ☺️", text: "Thanks for reaching out!", icon: "success" });
+        Swal.fire({
+          title: "Good job ☺️",
+          text: "Thanks for reaching out!",
+          icon: "success",
+        });
+        setFormData({ name: "", email: "", linkedin: "", message: "" });
+        setStatus({ success: true, message: "Message sent successfully!" });
       } else {
         setStatus({ success: false, message: "Something went wrong. Try again!" });
       }
     } catch (error) {
       setStatus({ success: false, message: "Network error. Try again later!" });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setStatus({ success: false, message: "" }), 5000);
     }
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
     <section id="contact" className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
-        {/* Title */}
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-10"
-          animate={{ backgroundSize: ["200% 200%", "300% 300%", "200% 200%"], backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+          animate={{
+            backgroundSize: ["200% 200%", "300% 300%", "200% 200%"],
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-          style={{ backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)", backgroundSize: "200% 200%", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+          style={{
+            backgroundImage: "linear-gradient(90deg, #3b82f6, #a855f7, #ec4899)",
+            backgroundSize: "200% 200%",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
         >
           Get in Touch
         </motion.h2>
 
-       {/* Two-column layout */}
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Left Column */}
           <motion.div
             className="backdrop-blur-md bg-white/70 dark:bg-gray-800/70 rounded-2xl shadow-lg p-6 flex flex-col justify-between"
@@ -100,24 +133,28 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               {["name", "email", "linkedin"].map((field, idx) => (
                 <div key={idx}>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 capitalize mb-1">
+                  <label htmlFor={field} className="block text-sm font-medium text-gray-700 dark:text-gray-300 capitalize mb-1">
                     {field}
                   </label>
                   <input
                     type={field === "email" ? "email" : "text"}
                     name={field}
-                    value={formData[field as keyof typeof formData]}
+                    id={field}
+                    aria-label={field}
+                    value={formData[field as keyof FormDataType]}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 text-sm focus:ring-2 focus:ring-indigo-400 outline-none"
-                    required
                     placeholder={`Enter your ${field}`}
+                    required
                   />
                 </div>
               ))}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
                 <textarea
                   name="message"
+                  id="message"
+                  aria-label="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
@@ -130,14 +167,19 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full py-3 font-semibold rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-sm shadow-lg transition-all duration-300"
+                disabled={isSubmitting}
+                className="w-full py-3 font-semibold rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-sm shadow-lg transition-all duration-300 disabled:opacity-60"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
               {status.message && (
-                <p className={`text-xs mt-2 ${status.success ? "text-green-500" : "text-red-500"}`}>
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`text-xs mt-2 ${status.success ? "text-green-500" : "text-red-500"}`}
+                >
                   {status.message}
-                </p>
+                </motion.p>
               )}
             </form>
           </motion.div>
