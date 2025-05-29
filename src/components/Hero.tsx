@@ -77,7 +77,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <motion.a
-                href="/images/Saime_Resume.pdf"
+                href="/images/Saime_Shaikh_Devops_Resume.pdf"
                 download
                 className="px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                 style={buttonStyle}
