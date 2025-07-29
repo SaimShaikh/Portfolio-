@@ -29,7 +29,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     const formDataWithAccessKey = new FormData();
-    formDataWithAccessKey.append("access_key", "3ae7327b-340d-430c-8654-0294fcfa5c0d");
+    formDataWithAccessKey.append("access_key", "add your_access_key_here");
     Object.entries(formData).forEach(([key, value]) =>
       formDataWithAccessKey.append(key, value)
     );

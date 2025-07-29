@@ -23,7 +23,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
           <img
-              src="/images/pa2.jpg"
+              src="/images/<>"
               alt="DevOps Engineer"
               className="rounded-xl shadow-xl dark:shadow-indigo-500/20"
             />
